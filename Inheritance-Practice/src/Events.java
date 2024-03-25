@@ -1,4 +1,4 @@
-public class Event {
+public class Events {
 
     public static final double insuranceCost = 1000.00;
     public static final double tax = 0.3;
@@ -11,7 +11,7 @@ public class Event {
     private int totalParticipants;
     private int totalEventDays;
 
-    public Event(String eventID, String eventName, String eventLocation, String eventPointOfContact, double eventCost, int totalParticipants, int totalEventDays) {
+    public Events(String eventID, String eventName, String eventLocation, String eventPointOfContact, double eventCost, int totalParticipants, int totalEventDays) {
         this.eventID = eventID;
         this.eventName = eventName;
         this.eventLocation = eventLocation;

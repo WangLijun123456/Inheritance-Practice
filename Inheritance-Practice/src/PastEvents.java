@@ -1,58 +1,39 @@
-public class PastEvents extends Event{
+import java.time.LocalDate;
 
+public  class PastEvents extends Event {
+    private LocalDate eventStartDate;
+    private LocalDate eventEndDate;
     private String paymentStatus;
     private boolean requiresExtension;
-    private String paymentDetails;
-    private double pastEventCost;
+    private static final double eventCost = 10_000;
 
-    public PastEvents(String eventID, String eventName, String eventLocation, String pointOfContact, int totalParticipants, int totalEventDays) {
-
-        super(eventID, eventName, eventLocation, pointOfContact, totalParticipants, totalEventDays);
-        
-    }
-
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(String status) {
-        this.paymentStatus = status;
-    }
-
-    public boolean getRequiresExtension() {
-        return requiresExtension;
-    }
-
-    public void setRequiresExtension(boolean requiresExtension) {
+    public PastEvents(String eventID, String eventName, String eventLocation, String  eventPointOfContact, int totalParticipants, int totalEventDays, LocalDate eventStartDate, LocalDate eventEndDate,String paymentStatus, boolean requiresExtension) {
+        super(eventID, eventName, eventLocation, eventPointOfContact, eventCost, totalParticipants, totalEventDays);
+        this.eventStartDate = eventStartDate;
+        this.eventEndDate = eventEndDate;
+        this.paymentStatus = paymentStatus;
         this.requiresExtension = requiresExtension;
     }
 
-    @Override
-    public void calculateEventCost(){
-        super.calculateEventCost();
-        pastEventCost = getEventCost();
-    }
-
-    public void setPaymentDetails(String paymentStatus, boolean requiresExtension) {
-        this.paymentDetails = "The event cost was " +  pastEventCost + " and the payment status is " + paymentStatus + 
-        "\n" + "The Customer requires extension?: " + requiresExtension;
-    }
-
     public String getPaymentDetails() {
-        return paymentDetails;
+        return String.format("The event cost was %.2f and the payment status is %s. The Customer requires extension?: %b.", eventCost, paymentStatus, requiresExtension );
     }
 
     @Override
-    public String toString(){
-        return "Conference Event details: " + "\n" +
-        "Event ID: " + getEventID() + "\n" +
-        "Event Name: " + getEventName() + "\n" +
-        "Event Location: " + getEventLocation() + "\n" +
-        "Total participants: " + getTotalParticipants() + "\n" +
-        "The payment details are as follows: " + "\n" + 
-        paymentDetails;
+    public String toString() {
+        return  "\nEvent ID: " + getEventID() + "\n" +
+                "Event Name: " + getEventName() + "\n" +
+                "Event Location: " + getEventLocation() + "\n" +
+                "Event Start Date: " + eventStartDate + "\n" +
+                "Event End Date: " + eventEndDate + "\n" +
+                "Payment Status: " + paymentStatus + "\n" +
+                "Requires Extension: " + requiresExtension + "\n" +
+                "Payment Details: " + getPaymentDetails();
     }
-    
+
+    @Override
+    public void calculateEventCost() {
+       
+    }
+
 }
-
-

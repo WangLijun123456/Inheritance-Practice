@@ -96,8 +96,9 @@ public class ConferenceEvent  {
 
 
     public void calculateEventCost() {
-        eventCost = calculateEventCostObject.calculateEventCost() + ((breakfastCost + lunchCost + dinnerCost) + getTotalParticipants() *getTotalEventDays());
-       
+        //eventCost = calculateEventCostObject.calculateEventCost() + ((breakfastCost + lunchCost + dinnerCost) + getTotalParticipants() *getTotalEventDays());
+        eventCost = calculateEventCostObject.calculateEventCost() + 
+        (calculateEventCostObject.calculateEventCost() * 0.3);
     }
 
     @Override

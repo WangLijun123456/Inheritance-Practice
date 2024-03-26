@@ -21,7 +21,7 @@ public  class PastEvents extends Event {
 
     @Override
     public String toString() {
-        return  "\nEvent ID: " + getEventID() + "\n" +
+        return  "Event ID: " + getEventID() + "\n" +
                 "Event Name: " + getEventName() + "\n" +
                 "Event Location: " + getEventLocation() + "\n" +
                 "Event Start Date: " + eventStartDate + "\n" +

@@ -25,7 +25,7 @@ public class MusicConcertEvent extends Event {
 
     @Override
     public void calculateEventCost() {
-    
+        
     }
    
     @Override
